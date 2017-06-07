@@ -1,13 +1,28 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+  <div id="app" :title="hello">
+   
+  
+     <h2 v-for="(item ,index) in list">
+      {{index}} {{item.name}}
+     </h2>
+    <componentA></componentA>
   </div>
 </template>
 
 <script>
+ import componentA from './components/a.vue'
 export default {
-  name: 'app'
+  components:{
+    componentA
+  },
+  data(){
+    return {
+      hello:"world",
+      list:[
+        {name:1}
+      ]
+    }
+  }
 }
 </script>
 
