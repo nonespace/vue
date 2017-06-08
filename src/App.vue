@@ -1,14 +1,39 @@
 <template>
   <div id="app" :title="hello">
-  
-  
     <h2 v-for="(item ,index) in list">
       {{index}} {{item.name}}
     </h2>
-    <componentA></componentA>
     <button v-on:click="additem">添加</button>
-
-    <a v-bind:href="link" v-bind:classname="classname">to 百度</a>
+    <a v-bind:href="link" v-bind:classname="classname">to 百度</a> {{myValue}}
+    <componentA @my-event="onComA"></componentA>
+  
+    <input type="checkbox" v-model="myBox" value="apple">
+  
+    <input type="checkbox" v-model="myBox" value="男">
+  
+    <input type="checkbox" v-model="myBox" value="女">
+  
+    <input type="checkbox" v-model="myBox" value="玻璃"> {{myBox}}
+    <div>
+      <select name="" id="" v-model="selection">
+        
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">是</option>
+        <!--根据value的值参与选中-->
+        <option value="4">4</option>
+        <option value="5">5</option>
+      
+      </select>
+    </div>
+  <input type="text" v-model.number="input">
+  
+  
+  
+  
+  
+  
+  
   </div>
 </template>
 
@@ -25,11 +50,15 @@
         list: [{
           name: 1
         }],
-        link:"http://www.baidu.com",
-        classname:{
-          "red_font":false,
-          "blue-font":true
-        }
+        link: "http://www.baidu.com",
+        classname: {
+          "red_font": false,
+          "blue-font": true
+        },
+        myValue: "skoshd",
+        myBox: [],
+        selection: "3",
+        input:''
       }
     },
     methods: {
@@ -43,6 +72,10 @@
           price: "222"
   
         })
+      },
+      onComA: function(parmfromA) {
+        console.log('onComA' + parmfromA)
+  
       }
     }
   }
@@ -57,10 +90,12 @@
     color: #2c3e50;
     margin-top: 60px;
   }
-  .red_font{
-    color:red
+  
+  .red_font {
+    color: red
   }
-  .blue-font{
-    color:blue
+  
+  .blue-font {
+    color: blue
   }
 </style>

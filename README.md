@@ -155,6 +155,107 @@ classname:{
   "red_font":false,
   "blue-font":true
 }
+也可以数组 对象混用
 
 v-if元素是否存在
 v-show:只是显示隐藏
+
+
+5.事件绑定，表单的绑定
+v-on:click =>@click
+@keydown.enter=""
+v-on:keydown.13="onKeydown"
+onKeydown =>自定义事件
+键盘输入enter的时候
+修改器
+.stop阻止冒泡
+
+<template>
+    <div>
+    
+        {{hello}}
+    
+        <button @click="emitMyEvent">点一下</button>
+    
+    </div>
+</template>
+
+<script>
+    export default {
+    
+        data() {
+    
+            return {
+    
+                hello: " i am A"
+    
+            }
+    
+        },
+    
+        methods: {
+    
+            emitMyEvent() {
+                this.$emit("my-event", this.hello)
+
+                <!--这里子组件传递事件名称和数据-->
+    
+            }
+    
+        }
+    
+    }
+</script>
+
+
+父组件<componentA @my-event="onComA"></componentA>
+
+methods:{
+
+onComA:function(parmfromA){
+    console.log('onComA'+parmfromA)
+}
+
+input组件的绑定
+<!--parmfromA这里是传递过来的参数-->
+   {{myValue}}
+<input type="text" v-model="myValue">
+v-model.number="myValue" 输出的位数字
+      .trim 去除空格
+
+    <!--<input type="checkbox" v-model="myBox" value="apple">
+
+    <input type="checkbox" v-model="myBox" value="男">
+
+    <input type="checkbox" v-model="myBox" value="女">
+
+    <input type="checkbox" v-model="myBox" value="玻璃"> -->
+
+  <input type="radio" v-model="myBox" value="玻璃">
+
+
+
+    <!---->
+    {{myBox}}
+会把选中的value复制到数组中
+ 
+    data{
+        myBox: []
+    }
+ <select name="" id="" v-model="selection">
+    
+    <option value="1">1</option>
+     <option value="2">2</option>
+     <option value="3">是</option>
+     
+    <!--根据value的值参与选中-->
+       <option value="4">4</option>
+        <option value="5">5</option>
+  
+  </select>
+
+
+
+
+6.计算属性的应用
+
