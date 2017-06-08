@@ -107,7 +107,7 @@ previent
     </h2>
 
 
-    使用组件
+    2.使用组件
     <script>
  import componentA from './components/a.vue'
 export default {
@@ -124,3 +124,25 @@ export default {
   }
 }
 </script>
+
+
+3.列表数据更新=跟设置
+
+ <button v-on:click="additem">添加</button>
+methods:{
+      additem:function(){
+        this.list.push({
+          name:"sdsdsd"
+        })
+      }
+    }
+设置数组的长度 不会更新
+数组元素的赋值也不更新 
+Vue.set(this.list, 1, {
+name: "pkpj",
+price: "222"
+})
+可以使用Vue的全局方法实现值得变化并且更新数据表
+
+
+4.vue标签属性和条件的渲染
