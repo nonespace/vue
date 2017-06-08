@@ -146,3 +146,15 @@ price: "222"
 
 
 4.vue标签属性和条件的渲染
+v-bind:属性的参数   例子
+ <a v-bind:href="link">to 百度</a>
+ 也可以使用：属性名
+
+ data数据里面的数据改变相应的属性就会跟着改变
+classname:{
+  "red_font":false,
+  "blue-font":true
+}
+
+v-if元素是否存在
+v-show:只是显示隐藏

@@ -7,6 +7,8 @@
     </h2>
     <componentA></componentA>
     <button v-on:click="additem">添加</button>
+
+    <a v-bind:href="link" v-bind:classname="classname">to 百度</a>
   </div>
 </template>
 
@@ -22,7 +24,12 @@
         hello: "world",
         list: [{
           name: 1
-        }]
+        }],
+        link:"http://www.baidu.com",
+        classname:{
+          "red_font":false,
+          "blue-font":true
+        }
       }
     },
     methods: {
@@ -49,5 +56,11 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  .red_font{
+    color:red
+  }
+  .blue-font{
+    color:blue
   }
 </style>
