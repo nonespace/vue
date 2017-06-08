@@ -259,3 +259,26 @@ v-model.number="myValue" 输出的位数字
 
 6.计算属性的应用
 
+ computed:{
+      myValue1WithNum(){
+        return  this.myValue  
+      },
+      myValueWithNum:function(){
+         return  this.myValue.replace(/\d/g,'')过滤数字
+      }
+
+    }
+  也可以通过方法来实现
+  只有在调用的时候就会
+   <h2>{{getmyValueWithNum()}}</h2>
+
+
+  属性监听
+    <input type="text" v-model="myValue">
+  watch:{
+      myValue:function(val,oldVal){
+        console.log("新:"+val)
+        console.log("旧:"+oldVal)
+
+      }
+    } 
