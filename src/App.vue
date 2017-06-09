@@ -1,13 +1,15 @@
 <template>
   <div id="app" :title="hello">
-
-      <componentA></componentA>
-      <input type="text" v-model="myValue">
-   <h2>{{getmyValueWithNum()}}</h2>
-
   
+    <input type="text" v-model.number="myValue">
+    <componentA :my-value="myValue"></componentA>
   
+    <!-- <h2>{{getmyValueWithNum()}}</h2>
+            -->
+    <componentA @my-event="myEvent">
   
+      <p>9-0-09-0</p>
+    </componentA>
   
   
   </div>
@@ -23,11 +25,15 @@
     data() {
       return {
         hello: "world",
-        myValue:''
-       
+        myValue: ''
+  
       }
     },
     methods: {
+      myEvent: function(hello) {
+        console.log(hello)
+  
+      },
       additem: function() {
         // this.list.push({
         //   name:"sdsdsd"
@@ -43,27 +49,27 @@
         console.log('onComA' + parmfromA)
   
       },
-      getmyValueWithNum(){
-        return  this.myValue.replace(/\d/g,'')
+      getmyValueWithNum() {
+        return this.myValue.replace(/\d/g, '')
       }
     },
-    computed:{
-      myValue1WithNum(){
-        return  this.myValue  
+    computed: {
+      myValue1WithNum() {
+        return this.myValue
       },
-      myValueWithNum:function(){
-         return  this.myValue.replace(/\d/g,'')
+      myValueWithNum: function() {
+        return this.myValue.replace(/\d/g, '')
       }
-
+  
     },
-    watch:{
-      myValue:function(val,oldVal){
-        console.log("新:"+val)
-        console.log("旧:"+oldVal)
-
+    watch: {
+      myValue: function(val, oldVal) {
+        console.log("新:" + val)
+        console.log("旧:" + oldVal)
+  
       }
-    } 
- }
+    }
+  }
 </script>
 
 <style>

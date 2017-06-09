@@ -282,3 +282,93 @@ v-model.number="myValue" 输出的位数字
 
       }
     } 
+
+
+    7父子组件传值
+    父组件 =>子 Pass Props
+ 父组件： <componentA number="00"></componentA>
+          number大小写不明显number-to-do
+ 子组件：
+         {{number}}
+                 {{numberToDo}}number-to-do
+ 
+    export default {
+        props:['number'],//在这里接收父组件的传递的数据 并且该组件已经在data里
+                          声明了
+                        接收数组
+                        或者对象
+     例子
+     prps:{
+       'number-to-do':[Number,String，Object]可以设置接收的数值
+     }
+
+
+        data() {
+            return {
+                hello: " i am A"
+            }
+        },
+        methods: {
+            emitMyEvent() {
+                this.$emit("my-event", this.hello)子组件的方法=>父组件this.hello是传递的参数
+
+                                                   <componentA @my-event="myEvent"></componentA>
+                                                   父组件监听这个事件，并且顶一个本组件的事件
+
+            }
+        }
+    }
+
+
+
+
+
+
+插槽功能
+
+<template>
+    <div>
+    
+        {{hello}}
+        {{myValue}}
+    
+        <button @click="emitMyEvent">点一下</button>
+        <slot></slot>等同于占位符
+        <slot name="header"></slot>
+        <slot name="footer"></slot>
+    
+    </div>
+</template>
+
+
+<componentA @my-event="myEvent">
+      <p>9-0-09-0</p>
+
+      <p slot="header"></p>   就会 相应的插到子组件中去
+
+ </componentA>
+  
+
+
+9.动态组件
+
+就是通过is改变不同的模板
+<keep-alive>
+<p :is="currentView"></p>
+</keep-alive>
+data{
+  currentView:"com-a"
+}
+切换的话
+
+currentView:"com-b"
+
+keep-alive  模板切换保存A保证响应的速度
+
+总结
+使用组件树设置项目
+配置文件链接各种组件--命名的转换，动态组件
+父组件向内传递属性-动态属性
+子组件通过事件向外发布事件 传递参数
+
+slot插槽传递末班-具名  <slot name>
