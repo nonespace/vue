@@ -1,15 +1,31 @@
 <template>
   <div id="app" :title="hello">
   
-    <input type="text" v-model.number="myValue">
-    <componentA :my-value="myValue"></componentA>
+    <!-- <input type="text" v-model.number="myValue">
+      <componentA :my-value="myValue"></componentA>
+    
+       <h2>{{getmyValueWithNum()}}</h2>
+                
+        <componentA @my-event="myEvent">
+      
+          <p>9-0-09-0</p>
+        </componentA>-->
+    <button @click="haha">点击显示</button>
+
+    <transition name="fade">
+      <p v-show="condition">显示</p>
+    </transition>
   
-    <!-- <h2>{{getmyValueWithNum()}}</h2>
-            -->
-    <componentA @my-event="myEvent">
   
-      <p>9-0-09-0</p>
-    </componentA>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   </div>
@@ -25,13 +41,20 @@
     data() {
       return {
         hello: "world",
-        myValue: ''
+        myValue: '',
+        condition: "1",
+  
+  
   
       }
     },
     methods: {
       myEvent: function(hello) {
         console.log(hello)
+  
+      },
+      haha: function() {
+        this.condition = !this.condition
   
       },
       additem: function() {
@@ -73,6 +96,26 @@
 </script>
 
 <style>
+.fade-enter-active,.fade-leave-active{
+  transition: all 0.5s
+}
+.fade-enter,.fade-leave-active{
+  opacity:0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -88,5 +131,9 @@
   
   .blue-font {
     color: blue
+  }
+  
+  p {
+    font-size: 60px
   }
 </style>

@@ -372,3 +372,41 @@ keep-alive  模板切换保存A保证响应的速度
 子组件通过事件向外发布事件 传递参数
 
 slot插槽传递末班-具名  <slot name>
+
+
+
+
+
+
+10.动画vue-高级功能
+过度-自定义指令-minxins - 插件
+
+过度css   js两种方式
+<!--
+v-if
+v-show
+动态组件-->
+
+v-enter => v-enter-active => v-leave =>v-leave-active
+
+
+.fade-enter-active,.fade-leave-active{
+  transition: all 0.5s
+}
+.fade-enter,.fade-leave-active{
+  opacity:0
+}
+
+
+    <button @click="haha">点击显示</button>
+
+    <transition name="fade">
+      <p v-show="condition">显示</p>
+    </transition>
+  
+
+
+  存在一个状态连个同时存在,发生动画的标签名一样不会触发动画效果
+  
+  mode="out-in"
+  mode="in-out"
