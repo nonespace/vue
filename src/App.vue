@@ -12,7 +12,7 @@
         </componentA>-->
     <button @click="haha">点击显示</button>
 
-    <transition name="fade">
+    <transition  enter-active-class="zoomInLeft" leave-active-class="zoomOutRight">
       <p v-show="condition">显示</p>
     </transition>
   
@@ -32,8 +32,10 @@
 </template>
 
 <script>
-  import Vue from "vue"
+  
+  // import animate from "animate.css"
   import componentA from './components/a.vue'
+  import '../node_modules/_animate.css@3.5.2@animate.css/animate.css'
   export default {
     components: {
       componentA
@@ -96,12 +98,6 @@
 </script>
 
 <style>
-.fade-enter-active,.fade-leave-active{
-  transition: all 0.5s
-}
-.fade-enter,.fade-leave-active{
-  opacity:0
-}
 
 
 

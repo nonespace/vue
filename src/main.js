@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+Vue.use(router);
 // Vue.config.productionTip = false;
 
 // Vue.component("my-header",{
@@ -39,11 +39,11 @@ import router from './router'
 //     "my-header":myHeader
 //   }
 //   // template:"<h2>环境设计</h2>"//在main里面挂载数据
- 
+
 // })
 new Vue({
-  el:"#app",
-  render:function(h){
-    return h(App)
-  }
+    el: "#app",
+    render: function(h) {
+        return h(App)
+    }
 })

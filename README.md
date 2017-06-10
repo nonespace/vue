@@ -407,6 +407,7 @@ v-enter => v-enter-active => v-leave =>v-leave-active
 
 
   存在一个状态连个同时存在,发生动画的标签名一样不会触发动画效果
-  
+  通过key来实现区分
+
   mode="out-in"
   mode="in-out"
