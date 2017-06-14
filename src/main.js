@@ -3,16 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import VRouter from 'vue-router'
-import Apple from './components/a.vue'
-import Banana from './components/b.vue'
+import Apple from './components/a'
+import Banana from './components/b'
 Vue.use(VRouter);
-var routers = [
-    { path: '/apple', component: Apple },
-    { path: '/banana', component: Banana }
-]
 let router = new VRouter({
-
-    routers
+    routes: [{ path: '/apple', component: Apple },
+        { path: '/banana', component: Banana }
+    ]
 
 })
 
