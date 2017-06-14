@@ -1,8 +1,12 @@
 <template>
     <div>
-        <h1>我是苹果</h1>
+        <h1>我是香蕉</h1>
     </div>
 </template>
+
+<style lang="css">
+
+</style>
 
 <script>
     export default {
@@ -11,13 +15,10 @@
         },
         data() {
             return {
-                hello: " i am A"
+                hello: " i am B"
             }
         },
         methods: {
-            emitMyEvent() {
-                this.$emit("my-event", this.hello)
-            }
         }
     }
 </script>
